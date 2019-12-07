@@ -338,15 +338,11 @@ function createstars(n) {
 $(document).ready(function() {
 	
 	function coBrowse(data, eventInfo){
-		console.log(JSON.stringify(data));
-		console.log(JSON.stringify(eventInfo));
+		console.log("data --> " + JSON.stringify(data));
+		console.log("eventInfo --> " + JSON.stringify(eventInfo));
 		if(window.console && window.JSON){
 			if((data.state === "interactive") && (localStorage.getItem('LPclickMD') === "yes")){
 				console.log("interactive");
-				localStorage.setItem('LPinterMD', 'yes');
-				localStorage.setItem('LPclickMD', '');
-				var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Chat_Interattiva_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
-				$("body").append(txt);
 			}
 		}
 	}	
@@ -354,7 +350,7 @@ $(document).ready(function() {
 	
 	lpTag.events.bind({
 		eventName : "*",
-		appName : "*",
+		appName : "cobrowse",
 		func: coBrowse,
 		triggerOnce : false
 	});
