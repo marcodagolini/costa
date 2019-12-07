@@ -341,10 +341,10 @@ $(document).ready(function() {
 		console.log("eventInfo --> " + JSON.stringify(eventInfo));
 		if(window.console && window.JSON){
 			if(eventInfo.eventName === "sessionStarted"){
-				$(".myDiv").css("display","hidden");
+				$(".myDiv").hide();
 			}
 			if(eventInfo.eventName === "sessionEnd"){
-				$(".myDiv").css("display","block");
+				$(".myDiv").show();
 			}
 		}
 	}	
