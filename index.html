@@ -340,8 +340,11 @@ $(document).ready(function() {
 		console.log("data --> " + JSON.stringify(data));
 		console.log("eventInfo --> " + JSON.stringify(eventInfo));
 		if(window.console && window.JSON){
-			if((data.state === "interactive") && (localStorage.getItem('LPclickMD') === "yes")){
-				console.log("interactive");
+			if(eventInfo.eventName === "sessionStarted"){
+				$(".myDiv").css("display","hidden");
+			}
+			if(eventInfo.eventName === "sessionEnd"){
+				$(".myDiv").css("display","block");
 			}
 		}
 	}	
