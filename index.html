@@ -37,6 +37,14 @@
   top: 500px;
   left: 20px;
 }
+.pwdCobrowseAlert {
+  display: none;
+  color: red;
+  font-size: 10px;
+  position: absolute;
+  top: 610px;
+  left: 200px;
+}
 .myUsernameInput {
   font-size: 30px;
   position: absolute;
@@ -341,10 +349,10 @@ $(document).ready(function() {
 		console.log("eventInfo --> " + JSON.stringify(eventInfo));
 		if(window.console && window.JSON){
 			if(eventInfo.eventName === "sessionStarted"){
-				$(".myDiv").hide();
+				$(".pwdCobrowseAlert").show();
 			}
 			if(eventInfo.eventName === "sessionEnd"){
-				$(".myDiv").show();
+				$(".pwdCobrowseAlert").hide();
 			}
 		}
 	}	
@@ -385,6 +393,8 @@ $(document).ready(function() {
 	<div id="customerID" class="myDiv">Highlight this!</div><br>
 	 <div id="Username" class="Username">Username: </div> <input class="myUsernameInput" size="15" type="text" name="UserName" value="Username">
 	 <div id="Password" class="Password">Password: </div> <input class="myPasswordInput" size="15" type="text" name="myPassword" value="Password">
+	 <div id="pwdCobrowseAlert" class="pwdCobrowseAlert">*** Password will be not shown to the Agent during CoBrowse session ***</div><br>
+	 
 	  
 	  <div id="myLogin" class="myLoginButton">Login</div>
 	   <div id="myLogOut" class="myLoginButton" style="display:none;">Logout</div>
