@@ -14,6 +14,37 @@
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 
 
+	 
+	 	  <script>
+		  
+		  $(document).ready(function() {
+			  console.log("widgetSDK init");
+			  var lpWidgetSDK;
+			  var widgetSDKAPI = window.lpTag.LPWidgetSDK.API
+			  var opts = {bind: {}}
+			  var bindingEvent = [widgetSDKAPI.events.CONVERSATION_INFO,
+				      widgetSDKAPI.events.MESSAGES,
+				      widgetSDKAPI.events.PARTICIPANTS,
+				      widgetSDKAPI.events.UI_WIDGET,
+				      widgetSDKAPI.events.UI_WINDOW];
+			  bindingEvent.forEach(function (eventName) {
+				  opts.bind[eventName] = {func: _onEvent, context: this};
+			  });
+			  
+			  lpWidgetSDK = window.lpTag.LPWidgetSDK.init(opts);
+			  function _onEvent(eventData) {
+				  if (typeof eventData === "object") {
+					  console.log("Event data: " + JSON.stringify(eventData));
+				  } else{
+					  console.log("Event data: " + eventData);
+				  }
+			  }
+		  });
+		  
+  
+		  
+		  
+	  </script>
 
  
  
