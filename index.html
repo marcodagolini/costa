@@ -272,6 +272,16 @@ function authenticate(){
 		callback(token);
 	};
 	
+	lpTag.identities=[];
+        lpTag.identities.push(identityFn);
+        function identityFn(callback) {
+            callback({
+                iss: "https://something.someplace.com/",
+                acr: "loa1",
+                sub: "abc123456"
+            });
+        }
+	
 	setTimeout(function(){
 		console.log("inside2");
 		var CurrentLocation = window.location.href;
