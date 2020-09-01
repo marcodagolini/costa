@@ -379,6 +379,19 @@ function createstars(n) {
   }
   return stars;
 }
+	 
+function changeFirstMessage(data, eventInfo){
+	
+	var myLength = document.getElementsByClassName("lpc_message__text_agent").length;
+	for(var a = 0; a < myLength; a++){
+		if(document.getElementsByClassName("lpc_message__text_agent")[a].innerHTML === 'Messaging terms and conditions: <a href="https://www.google.com" target="_blank" rel="noopener">https://www.google.com</a>'){
+			document.getElementsByClassName("lpc_message__text_agent")[a].innerHTML = "Message changed!";
+		}
+	}
+		
+}
+	 
+	 
 $(document).ready(function() {
 	
 	function coBrowse(data, eventInfo){
@@ -400,6 +413,13 @@ $(document).ready(function() {
 		// appName : "*",
 		appName : "cobrowse",
 		func: coBrowse,
+		triggerOnce : false
+	});
+	
+	lpTag.events.bind({
+		eventName : "REQUEST_COMPLETE",
+		appName : "lp_monitoringSDK",
+		func: changeFirstMessage,
 		triggerOnce : false
 	});
 	
