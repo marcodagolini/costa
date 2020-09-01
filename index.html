@@ -421,8 +421,8 @@ $(document).ready(function() {
 	});
 	
 	lpTag.events.bind({
-		eventName : "firstPartyMessage",
-		appName : "SecureStorageClient",
+		eventName : "REQUEST_COMPLETE",
+		appName : "lp_monitoringSDK",
 		func: changeFirstMessage,
 		triggerOnce : false
 	});
