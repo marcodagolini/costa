@@ -420,8 +420,8 @@ $(document).ready(function() {
 	});
 	
 	lpTag.events.bind({
-		eventName : "state",
-		appName : "lpUnifiedWindow",
+		eventName : "firstPartyMessage",
+		appName : "SecureStorageClient",
 		func: changeFirstMessage,
 		triggerOnce : false
 	});
