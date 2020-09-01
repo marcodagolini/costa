@@ -419,8 +419,8 @@ $(document).ready(function() {
 	});
 	
 	lpTag.events.bind({
-		eventName : "conversationInfo",
-		appName : "lpUnifiedWindow",
+		eventName : "firstPartyMessage",
+		appName : "SecureStorageClient",
 		func: changeFirstMessage,
 		triggerOnce : false
 	});
